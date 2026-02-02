@@ -598,6 +598,10 @@ impl PlantRenderer {
                         ['.', ',', '\'', '`'][self.rng.gen_range(0..4)]
                     };
                     canvas.set(center_x + dx, y, ch, self.dna.leaf_color);
+                } else if self.rng.gen_bool(0.25) {
+                    // Fill gaps with light foliage
+                    let ch = ['.', ',', '`'][self.rng.gen_range(0..3)];
+                    canvas.set(center_x + dx, y, ch, self.dna.leaf_color);
                 }
             }
         }
@@ -884,6 +888,10 @@ impl PlantRenderer {
                     };
 
                     canvas.set(x + dx, y + dy, ch, self.dna.leaf_color);
+                } else if self.rng.gen_bool(0.3) {
+                    // Fill gaps with light foliage
+                    let ch = ['.', ',', '`'][self.rng.gen_range(0..3)];
+                    canvas.set(x + dx, y + dy, ch, self.dna.leaf_color);
                 }
             }
         }
@@ -925,6 +933,10 @@ impl PlantRenderer {
                         ['.', ',', '`', '\''][self.rng.gen_range(0..4)]
                     };
 
+                    canvas.set(x + dx, y, ch, self.dna.leaf_color);
+                } else if self.rng.gen_bool(0.3) {
+                    // Fill gaps with light foliage
+                    let ch = ['.', ',', '`'][self.rng.gen_range(0..3)];
                     canvas.set(x + dx, y, ch, self.dna.leaf_color);
                 }
             }
